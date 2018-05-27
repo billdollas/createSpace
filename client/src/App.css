@@ -1,4 +1,78 @@
-.App {
+/*LANDING PAGE CSS BEGINS*/
+
+
+.spacesCont {
+  display: flex;
+  justify-content: center;
+  /*justify-content: space-between;*/
+}
+
+.artTxt {
+  padding-right: 10px;
+  /*border-right: 1pt solid black;*/
+  transition: all .2s ease-in-out;
+
+}
+
+.artTxt:hover {
+  transform: scale(1.1);
+
+}
+
+.photoTxt {
+  padding-right: 10px;
+  /*border-right: 1pt solid black;*/
+  padding-left: 10px;
+  transition: all .2s ease-in-out;
+}
+
+.photoTxt:hover{
+  transform: scale(1.1);
+  /*padding: 10px;*/
+  /*padding-left: 10px;
+  padding-right: 10px;*/
+}
+
+.filmTxt{
+  padding-left: 10px;
+  transition: all .2s ease-in-out;
+}
+
+.filmTxt:hover {
+  transform: scale(1.1);
+}
+
+.borderOne {
+  border-right: 2pt solid black;
+}
+
+.borderTwo {
+  border-right: 2pt solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.App {
   text-align: center;
 }
 
@@ -26,3 +100,4 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+*/
