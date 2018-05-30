@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import Art from './components/Art';
 import Photography from './components/Photography';
 import Film from './components/Film';
 import Login from './components/Login';
-import Home from './components/Home';
 import Register from './components/Register';
+import Profile from './components/Profile';
 import {Route, Switch } from 'react-router-dom';
+import TokenService from './services/TokenService';
 const base = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
@@ -16,6 +18,8 @@ class App extends Component {
     this.state = {
       spaces: []
     };
+
+  this.register = this.register.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +29,23 @@ class App extends Component {
       spaces: data.spaces
     }));
   }
+
+  //auth shit begins
+
+  register(data) {
+    axios(`${base}/users`, {
+      method: "POST",
+      data
+    }).then(resp => {
+      TokenService.save(resp.data.token)
+    })
+    .catch(err => console.log(`err: ${err}`));
+  }
+
+
+
+
+
   render() {
     return (
       <div className="App">
@@ -69,10 +90,24 @@ class App extends Component {
           render= { props => {
             return(
               <div>
-              <Register />
+              <Register
+              onSubmit={this.register}
+              />
               </div>
               )
           }}
+          />
+
+          <Route
+          path='/profile'
+          render= { props => {
+            return(
+              <div>
+              <Profile />
+              </div>
+              )
+          }}
+
           />
 
 
