@@ -11,30 +11,38 @@ class UsersController < ApplicationController
   end
 
   def create
+
+    # @user = User.create(user_params)
     username = params[:username]
     password = params[:password]
     email = params[:email]
 
-    @user = User.create({
-      :username => params[:username],
-      :password => params[:password],
-      :email => params[:email]
-    })
-
-    # new_user = User.create!({
-    #   password: password,
-    #   username: username,
-    #   email: email
+    # @user = User.create({
+    #   :username => params[:username],
+    #   :password => params[:password],
+    #   :email => params[:email]
     # })
 
+    new_user = User.create!({
+      password: password,
+      username: username,
+      email: email
+    })
 
-    if @user
+
+    if new_user
       p "done!"
-      render json: {token: gen_token(@user.id)}
+      render json: {token: gen_token(new_user.id)}
     else
       p "not done!"
       render json: {err: 'nope'}
     end
+
+  # if @user.save
+  #    render json: @user, status: :created, location: @user
+  #  else
+  #    render json: @user.errors, status: :unprocessable_entity
+  #  end
   end
 
   def index
@@ -60,4 +68,9 @@ class UsersController < ApplicationController
       render json: {user: user, token: gen_token(user.id)}
     end
   end
+
+  # private
+  # def user_params
+  #   params.require(:user).permit(:username, :password, :email)
+  # end
 end

@@ -19,12 +19,19 @@ class User < ApplicationRecord
   end
 
   def is_password?(password_attempt)
-    BCrypt::Password.new(password).is_password?(password_attempt)
+    BCrypt::Password.new(password_digest).is_password?(password_attempt)
   end
 
-  def password=(pword)
-    @pword = pword
-    self.password = BCrypt::Password.create(pword)
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
   end
 
 end
+
+
+
+# def raw_password=(pword)
+#     @pword = pword
+#     self.password = BCrypt::Password.create(pword)
+#   end

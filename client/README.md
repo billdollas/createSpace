@@ -16,31 +16,22 @@ TO CONTACT THE ARTIST. AS A MEMBER YOU'LL BE ABLE TO POST, SELL YOUR ART, FOLLOW
  
 
 ## Pages/Components
-+ 
-+ 
-+ 
-+ 
-+ 
-    + 
-    + 
-    + 
-+ 
-    + 
-    + 
-    + 
-+ 
-    + 
-    + 
++ Art
++ Film
++ Photography
++ Profile
++ Login
++ Register
 
   
 ## TABLES  
-![](images/tables/tables.png)  
+  
 
 ## TECHNOLOGIES  
 
 #### CORE STACK
-+ 
-+ 
++ React- Front end
++ Rails- Backend
 + 
 + 
 + 

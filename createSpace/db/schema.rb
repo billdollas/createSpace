@@ -19,13 +19,15 @@ ActiveRecord::Schema.define(version: 2018_05_28_005026) do
     t.string "art"
     t.string "film"
     t.string "photo"
+    t.string "content"
+    t.integer "userid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

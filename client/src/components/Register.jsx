@@ -20,8 +20,11 @@ class Register extends Component {
  }
 
  handleSubmit(e) {
+
+const data = this.state;
+
   e.preventDefault();
-  this.props.onSubmit(this.state);
+  this.props.onSubmit(data);
   this.setState({
     username: '',
     password: '',
