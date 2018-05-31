@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TokenService from './services/TokenService';
 
 class Profile extends Component {
   render() {

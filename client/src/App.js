@@ -7,7 +7,7 @@ import Film from './components/Film';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
-import {Route, Switch } from 'react-router-dom';
+import {Route, Switch, Link } from 'react-router-dom';
 import TokenService from './services/TokenService';
 const base = process.env.REACT_APP_BASE_URL;
 
@@ -20,6 +20,7 @@ class App extends Component {
     };
 
   this.register = this.register.bind(this);
+  this.login = this.login.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +43,15 @@ class App extends Component {
     .catch(err => console.log(`err: ${err}`));
   }
 
+  login(data) {
+    axios(`${base}/users/login`, {
+      method: "POST",
+      data
+    }).then(resp => {
+      TokenService.save(resp.data.token);
+    })
+    .catch(err => console.log(`err: ${err}`));
+  }
 
 
 
@@ -55,6 +65,8 @@ class App extends Component {
           exact path= '/'
           render= { props => {
             return(
+              <div>
+
               <div className='spacesCont'>
               <div>
               <Art />
@@ -67,7 +79,14 @@ class App extends Component {
               <div>
               <Film />
               </div>
-              <p> Hello  </p>
+              <div className='mainTxt'>
+              <h1>createspace...</h1>
+              </div>
+              <div className='userCont'>
+              <Link to='/login' style={{ textDecoration: 'none' }}><h1 className='loginTxt'>Login</h1></Link>
+              <Link to='/register' style={{ textDecoration: 'none' }}><h1 className='regTxt'>Register</h1></Link>
+              </div>
+              </div>
               </div>
               )
           }}
@@ -78,7 +97,9 @@ class App extends Component {
           render= { props => {
             return(
               <div>
-              <Login />
+              <Login
+              onLogin={this.login}
+              />
               </div>
 
               )

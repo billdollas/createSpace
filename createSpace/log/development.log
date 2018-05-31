@@ -56254,3 +56254,507 @@ TypeError (no implicit conversion of nil into String):
   
 app/controllers/users_controller.rb:10:in `gen_token'
 app/controllers/users_controller.rb:35:in `create'
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 09:19:01 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 17ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 09:38:17 -0400
+  [1m[35m (12.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 09:40:48 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-31 10:19:24 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:50
+Completed 200 OK in 53ms (Views: 27.1ms | ActiveRecord: 53.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:19:53 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"JZ", "password"=>"[FILTERED]", "email"=>"JZ@mail.com", "user"=>{"username"=>"JZ", "email"=>"JZ@mail.com"}}
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (7.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JZ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "JZ@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (14.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 422 Unprocessable Entity in 150ms (ActiveRecord: 25.3ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username is too short (minimum is 5 characters)):
+  
+app/controllers/users_controller.rb:26:in `create'
+Started GET "/users" for 127.0.0.1 at 2018-05-31 10:20:09 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:50
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:20:48 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"JonZachary", "password"=>"[FILTERED]", "email"=>"JZ@mail.com", "user"=>{"username"=>"JonZachary", "email"=>"JZ@mail.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JonZachary"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "JZ@mail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (9.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "JonZachary"], ["password_digest", "$2a$10$hm6JrhQ9EiNH2vCw.RcxmOjRS6JssvBAhMyPMe4/6XbpeU.fAZllm"], ["email", "JZ@mail.com"], ["created_at", "2018-05-31 14:20:48.792754"], ["updated_at", "2018-05-31 14:20:48.792754"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 15.1ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:10:in `gen_token'
+app/controllers/users_controller.rb:35:in `create'
+Started GET "/users" for 127.0.0.1 at 2018-05-31 10:20:55 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:50
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:26:43 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"JonZa", "password"=>"[FILTERED]", "email"=>"JZ@G.com", "user"=>{"username"=>"JonZa", "email"=>"JZ@G.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JonZa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "JZ@G.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "JonZa"], ["password_digest", "$2a$10$uonr3gEQ7R/qXlK9k6FI6.5q/2Xrk/zqrYCm09yj4tzj0ajoSSWLO"], ["email", "JZ@G.com"], ["created_at", "2018-05-31 14:26:43.911659"], ["updated_at", "2018-05-31 14:26:43.911659"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 17.4ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:10:in `gen_token'
+app/controllers/users_controller.rb:35:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:27:20 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"JonZa", "password"=>"[FILTERED]", "email"=>"JZ@G.com", "user"=>{"username"=>"JonZa", "email"=>"JZ@G.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JonZa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "JZ@G.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 422 Unprocessable Entity in 86ms (ActiveRecord: 5.7ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username has already been taken, Email has already been taken):
+  
+app/controllers/users_controller.rb:26:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:27:33 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"JonZap", "password"=>"[FILTERED]", "email"=>"JZ@GA.com", "user"=>{"username"=>"JonZap", "email"=>"JZ@GA.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JonZap"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "JZ@GA.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "JonZap"], ["password_digest", "$2a$10$GTqsw5eM5ienATRQdtpWKO4AyB4wBi3/tvabaSPsVVVI.WhRNsfTK"], ["email", "JZ@GA.com"], ["created_at", "2018-05-31 14:27:33.827203"], ["updated_at", "2018-05-31 14:27:33.827203"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 3.5ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:10:in `gen_token'
+app/controllers/users_controller.rb:35:in `create'
+Started GET "/users" for 127.0.0.1 at 2018-05-31 10:28:02 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:50
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:29:00 -0400
+  
+SyntaxError (/Users/AishaBarrous/wdi/unit04/projects/createspace/createSpace/app/controllers/users_controller.rb:9: syntax error, unexpected '}', expecting =>
+    payload = {'123456789'}
+                          ^):
+  
+app/controllers/users_controller.rb:9: syntax error, unexpected '}', expecting =>
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:31:32 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"JonZappa", "password"=>"[FILTERED]", "email"=>"JZ@GAAP.com", "user"=>{"username"=>"JonZappa", "email"=>"JZ@GAAP.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JonZappa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "JZ@GAAP.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "JonZappa"], ["password_digest", "$2a$10$F4ouI4.SBt9i7kKeK7oRhOZJrd2GqTkKULeXcu3pfG9VN5X8dOtW6"], ["email", "JZ@GAAP.com"], ["created_at", "2018-05-31 14:31:33.187308"], ["updated_at", "2018-05-31 14:31:33.187308"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 17.9ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:10:in `gen_token'
+app/controllers/users_controller.rb:35:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:32:36 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"JonZappar", "password"=>"[FILTERED]", "email"=>"JZa@GAAP.com", "user"=>{"username"=>"JonZappar", "email"=>"JZa@GAAP.com"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JonZappar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "JZa@GAAP.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "JonZappar"], ["password_digest", "$2a$10$Q1Mv/4YwusRXkLDgsAMrHeGoZii/Q6E0dtT04bik04HpFqnfuTo/y"], ["email", "JZa@GAAP.com"], ["created_at", "2018-05-31 14:32:46.964943"], ["updated_at", "2018-05-31 14:32:46.964943"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 17.1ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/users_controller.rb:10:in `gen_token'
+app/controllers/users_controller.rb:35:in `create'
+Started GET "/users" for 127.0.0.1 at 2018-05-31 10:41:37 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:50
+Completed 200 OK in 36ms (Views: 24.6ms | ActiveRecord: 24.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:42:05 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"JonZappar", "password"=>"[FILTERED]", "email"=>"JZa@GAAP.com", "user"=>{"username"=>"JonZappar", "email"=>"JZa@GAAP.com"}}
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "JonZappar"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (4.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "JZa@GAAP.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 422 Unprocessable Entity in 244ms (ActiveRecord: 51.0ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Username has already been taken, Email has already been taken):
+  
+app/controllers/users_controller.rb:26:in `create'
+Started GET "/users" for 127.0.0.1 at 2018-05-31 10:42:15 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:50
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-31 10:42:43 -0400
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"FengXuan", "password"=>"[FILTERED]", "email"=>"FengXuan@gmail.com", "user"=>{"username"=>"FengXuan", "email"=>"FengXuan@gmail.com"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "FengXuan"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "FengXuan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "FengXuan"], ["password_digest", "$2a$10$Uln01aIFs1Z0Vy.TVXvJFupG8B.VVdLEdMqJdUKynLIaXYX3a4rFW"], ["email", "FengXuan@gmail.com"], ["created_at", "2018-05-31 14:42:43.532504"], ["updated_at", "2018-05-31 14:42:43.532504"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Completed 200 OK in 86ms (Views: 0.2ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:35:12 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 7ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:35:39 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:40:47 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 9ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:42:45 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:42:53 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:43:00 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:43:06 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-31 11:44:58 -0400
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (31.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:50
+Completed 200 OK in 61ms (Views: 26.9ms | ActiveRecord: 31.7ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:45:16 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 7ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:49:02 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:54:33 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 5ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 11:57:04 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:01:16 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:01:24 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:03:23 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 15ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:06:08 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:09:42 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 6ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:10:50 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:11:48 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 8ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:23:51 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:24:20 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:24:33 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:24:58 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:26:19 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:26:25 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:26:36 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:26:45 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:27:04 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:27:26 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:27:43 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:27:55 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:29:10 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:29:56 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 12:31:17 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:37:57 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 11ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:38:21 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:39:22 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 13ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:40:05 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:41:16 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 16ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:49:34 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:51:38 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 16ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:51:54 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:53:22 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:57:38 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 9ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:57:40 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 13:58:35 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 14:16:25 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 13ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 14:17:51 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 14:38:12 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/spaces" for 127.0.0.1 at 2018-05-31 15:02:55 -0400
+Processing by SpacesController#index as */*
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+

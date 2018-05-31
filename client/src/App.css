@@ -1,16 +1,69 @@
 /*LANDING PAGE CSS BEGINS*/
 
+/** {
+  margin: 0;
+  padding: 0;
+}*/
+
+.mainTxt h1{
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  border-right: .15em solid black;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
+    typing 5s steps(30, end),
+    blink-caret .5s step-end infinite;
+
+}
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 30% }
+}
+
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black }
+}
+
+.userCont{
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 12px;
+}
+
+.loginTxt{
+  padding-right: 10px;
+}
+
+.regTxt{
+  padding-right: 10px;
+}
 
 .spacesCont {
   display: flex;
   justify-content: center;
+  /*margin: 0 auto;*/
+  /*position: relative;*/
+  margin-top: 200px;
+
   /*justify-content: space-between;*/
 }
 
 .artTxt {
-  padding-right: 10px;
+  padding-right: 20px;
   /*border-right: 1pt solid black;*/
   transition: all .2s ease-in-out;
+  font-size: 24px;
 
 }
 
@@ -20,10 +73,11 @@
 }
 
 .photoTxt {
-  padding-right: 10px;
+  padding-right: 20px;
   /*border-right: 1pt solid black;*/
-  padding-left: 10px;
+  padding-left: 20px;
   transition: all .2s ease-in-out;
+  font-size: 24px;
 }
 
 .photoTxt:hover{
@@ -34,22 +88,24 @@
 }
 
 .filmTxt{
-  padding-left: 10px;
+  padding-left: 20px;
   transition: all .2s ease-in-out;
+  font-size: 24px;
 }
 
 .filmTxt:hover {
   transform: scale(1.1);
 }
 
-.borderOne {
-  border-right: 2pt solid black;
+/*.borderOne {
+  border-right: 1pt solid black;
 }
 
 .borderTwo {
-  border-right: 2pt solid black;
-}
+  border-right: 1pt solid black;
+}*/
 
+/*REGISTER CSS BEGINS*/
 
 
 
