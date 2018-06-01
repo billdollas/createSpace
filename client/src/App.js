@@ -12,11 +12,13 @@ import TokenService from './services/TokenService';
 const base = process.env.REACT_APP_BASE_URL;
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      spaces: []
+      spaces: [],
+      isLoggedIn: '',
+      user: ''
     };
 
   this.register = this.register.bind(this);
@@ -48,10 +50,31 @@ class App extends Component {
       method: "POST",
       data
     }).then(resp => {
-      TokenService.save(resp.data.token);
+      TokenService.save(resp.data.token),
+      console.log(resp.data.user),
+      this.setState(this.props.history.push('/profile'));
     })
     .catch(err => console.log(`err: ${err}`));
   }
+
+  authClick(ev) {
+    ev.preventDefault();
+    axios(`${base}/profile`, {
+      headers: {
+        Authorization: `Bearer ${TokenService.read()}`,
+      },
+    }).then(resp => console.log(resp))
+    .catch(err => console.log(err));
+  }
+
+  // checkLogin() {
+  //   axios(`${base}/isLoggedIn`, {
+  //     headers: {
+  //       Authorization: `Bearer ${TokenService.read()}`,
+  //     },
+  //   }).then(resp => console.log(resp))
+  //   .catch(err => console.log(err));
+  // }
 
 
 
@@ -98,7 +121,10 @@ class App extends Component {
             return(
               <div>
               <Login
+              user={this.state.user}
+              isLoggedIn={this.state.isLoggedIn}
               onLogin={this.login}
+              {...props}
               />
               </div>
 
@@ -124,7 +150,9 @@ class App extends Component {
           render= { props => {
             return(
               <div>
-              <Profile />
+              <Profile
+              {...props}
+              />
               </div>
               )
           }}

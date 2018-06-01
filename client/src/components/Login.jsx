@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import TokenService from '../services/TokenService';
+import axios from 'axios';
+
+const base = process.env.REACT_APP_BASE_URL;
 
 export default class Login extends Component {
   constructor(props) {
@@ -21,11 +25,26 @@ export default class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onLogin(this.state);
+    this.login(this.state);
     this.setState({
       username:'',
       password:''
     });
+  }
+
+  login(data) {
+    axios(`${base}/users/login`, {
+      method: "POST",
+      data
+    }).then(resp => {
+      TokenService.save(resp.data.token),
+      console.log(resp.data.user),
+      this.setState(this.props.history.push('/profile')),
+      this.setState(this.props.user = resp.data.user),
+      this.setState(this.props.isLoggedIn = 'loggedIn')
+      // this.setState(this.props.user = resp.data.user);
+    })
+    .catch(err => console.log(`err: ${err}`));
   }
 
   render() {
@@ -33,7 +52,7 @@ export default class Login extends Component {
 
         <div>
           <h1> LOGIN </h1>
-          <form onSubmit={this.handleSubmit}>
+          <form>
           <label>
             Username:
             <input type='text'
@@ -51,7 +70,7 @@ export default class Login extends Component {
             />
           </label>
 
-          <Link to='/profile'><button type='submit'> LOGIN </button> </Link>
+          <button type='submit' onClick={this.handleSubmit}> LOGIN </button>
           </form>
          </div>
       )
