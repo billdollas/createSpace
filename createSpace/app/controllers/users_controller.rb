@@ -74,3 +74,10 @@ class UsersController < ApplicationController
   #   params.require(:user).permit(:username, :password, :email)
   # end
 end
+  # post man vibes
+  # {
+  # "username": "billy",
+  # "password": "abc123",
+  # "email": "billy@gmail.com"
+  # }
+

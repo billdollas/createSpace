@@ -8,4 +8,22 @@ class SpacesController < ApplicationController
       ]
     }.to_json
   end
+
+  def create
+
+    userid = params[:userid]
+    category = params[:category]
+    content = params[:content]
+
+    newpost = Space.create!({
+      userid: userid,
+      category: category,
+      content: content
+    })
+    render json: newpost
+
+  end
+
+
+
 end

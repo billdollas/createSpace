@@ -104,8 +104,45 @@
 .borderTwo {
   border-right: 1pt solid black;
 }*/
+/*LANDING PAGE CSS ENDS*/
 
-/*REGISTER CSS BEGINS*/
+
+/*LOGIN CSS STARTS*/
+
+.loginFormCont {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
+  /*flex-wrap: wrap;*/
+  text-align: center;
+  margin: auto;
+  position: relative;
+}
+
+.loginForm {
+  /*margin-top: 50px;
+  padding-top: 80px;*/
+  /*justify-content: center;*/
+  /*margin: auto;*/
+  width: 400px;
+  height: 400px;
+  /*background: transparent;
+  position: relative;*/
+  /*background: rgba(255, 255, 255, .3);*/
+  /*box-shadow: inset -1px 2px 33px rgba(0, 0, 0, .3);*/
+  /*box-shadow: 0 0 24px 3px rgba(255, 185, 183, .1);*/
+  /*border-radius: 4px;*/
+
+
+  /*display: flex;*/
+  /*text-align: center;*/
+
+}
+
+
+
+/*LOGIN CSS ENDS*/
 
 
 

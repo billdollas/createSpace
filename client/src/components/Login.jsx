@@ -14,6 +14,7 @@ export default class Login extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.login = this.login.bind(this);
   }
 
   handleInputChange(e) {
@@ -50,10 +51,13 @@ export default class Login extends Component {
   render() {
     return (
 
-        <div>
+        <div className='loginContainer'>
+          <div className='loginFormTxt'>
           <h1> LOGIN </h1>
-          <form>
-          <label>
+          </div>
+          <div className='loginFormCont'>
+          <form className='loginForm'>
+          <label className='loginFormLabel'>
             Username:
             <input type='text'
             name='username'
@@ -61,7 +65,7 @@ export default class Login extends Component {
             value={this.state.username}
             />
           </label>
-          <label>
+          <label className='loginFormLabel'>
             Password:
             <input type='password'
             name='password'
@@ -72,6 +76,7 @@ export default class Login extends Component {
 
           <button type='submit' onClick={this.handleSubmit}> LOGIN </button>
           </form>
+          </div>
          </div>
       )
   }

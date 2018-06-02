@@ -18,7 +18,8 @@ class App extends Component {
     this.state = {
       spaces: [],
       isLoggedIn: '',
-      user: ''
+      user: '',
+      content: ''
     };
 
   this.register = this.register.bind(this);
@@ -94,11 +95,9 @@ class App extends Component {
               <div>
               <Art />
               </div>
-              <div className='borderOne'></div>
               <div>
               <Photography />
               </div>
-              <div className='borderTwo'></div>
               <div>
               <Film />
               </div>

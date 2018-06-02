@@ -16,9 +16,7 @@ ActiveRecord::Schema.define(version: 2018_05_28_005026) do
   enable_extension "plpgsql"
 
   create_table "spaces", force: :cascade do |t|
-    t.string "art"
-    t.string "film"
-    t.string "photo"
+    t.string "category"
     t.string "content"
     t.integer "userid"
     t.datetime "created_at", null: false

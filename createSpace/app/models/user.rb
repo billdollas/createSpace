@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+
+  has_many :spaces
   PASSWORD_LENGTH = (6..25)
   USERNAME_LENGTH = (5..15)
   EMAIL_LENGTH = (6..25)
