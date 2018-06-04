@@ -2,11 +2,13 @@ class Art < ApplicationRecord
 
 
   def index
-    render json: Art.all.to_json
+
+    render json: Art.all
   end
 
   def show
-    render json: Art.find(params[:category])
+    # render json: Art.find_by(params[:userid])
+    Art.where(category: 'art')
 
   end
 

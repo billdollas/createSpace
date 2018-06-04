@@ -109,12 +109,12 @@
 
 /*LOGIN CSS STARTS*/
 
-.loginFormCont {
+.loginFromCont {
   display: flex;
   justify-content: center;
   width: 500px;
   height: 500px;
-  /*flex-wrap: wrap;*/
+  flex-wrap: wrap;
   text-align: center;
   margin: auto;
   position: relative;

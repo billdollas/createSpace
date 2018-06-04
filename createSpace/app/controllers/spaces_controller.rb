@@ -1,12 +1,14 @@
 class SpacesController < ApplicationController
   def index
-    render json: {
-      spaces: [
-        {'name': 'Art'},
-        {'name': 'Film'},
-        {'name': 'Photography'}
-      ]
-    }.to_json
+
+    render json: Space.all
+    # render json: {
+    #   spaces: [
+    #     {'name': 'Art'},
+    #     {'name': 'Film'},
+    #     {'name': 'Photography'}
+    #   ]
+    # }.to_json
   end
 
   def create
@@ -24,6 +26,9 @@ class SpacesController < ApplicationController
 
   end
 
+  def show
+    Space.where(category: 'art')
+  end
 
 
 end

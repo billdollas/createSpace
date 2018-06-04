@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :spaces
   resources :users
   resources :art
+  resources :spaces do
+   get "art", :category
+end
 
   get 'isLoggedIn', :to => 'users#is_logged_in'
   post 'users/login', :to => 'users#login'
