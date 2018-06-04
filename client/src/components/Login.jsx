@@ -52,26 +52,32 @@ export default class Login extends Component {
     return (
 
         <div className='loginContainer'>
+          <div className='loginFormCont'>
+          <form className='loginForm'>
           <div className='loginFormTxt'>
           <h1> LOGIN </h1>
           </div>
-          <div className='loginFormCont'>
-          <form className='loginForm'>
           <label className='loginFormLabel'>
             Username:
+            <div>
             <input type='text'
+            className='loginInput'
             name='username'
             onChange={this.handleInputChange}
             value={this.state.username}
             />
+            </div>
           </label>
           <label className='loginFormLabel'>
             Password:
+            <div>
             <input type='password'
+            className='loginInput'
             name='password'
             onChange={this.handleInputChange}
             value={this.state.password}
             />
+            </div>
           </label>
 
           <button type='submit' onClick={this.handleSubmit}> LOGIN </button>

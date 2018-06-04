@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TokenService from '../services/TokenService';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Post from './Post';
 const base = process.env.REACT_APP_BASE_URL;
 
 class Profile extends Component {
@@ -50,6 +51,9 @@ class Profile extends Component {
         </div>
         </div>
         <div> Hello </div>
+        <div>
+        <Post />
+        </div>
 
         <div className='logoutCont'>
         <h1 onClick={this.logout}> Logout </h1>

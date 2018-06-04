@@ -109,15 +109,17 @@
 
 /*LOGIN CSS STARTS*/
 
-.loginFromCont {
+.loginFormCont {
   display: flex;
   justify-content: center;
-  width: 500px;
-  height: 500px;
-  flex-wrap: wrap;
+  width: 300px;
+  height: 300px;
   text-align: center;
   margin: auto;
   position: relative;
+  /*box-shadow: inset -1px 2px 33px rgba(0, 0, 0, .3);*/
+  box-shadow: 0 0 24px 3px rgba(0, 0, 0, .1);
+  border-radius: 15px 50px 30px;
 }
 
 .loginForm {
@@ -125,8 +127,8 @@
   padding-top: 80px;*/
   /*justify-content: center;*/
   /*margin: auto;*/
-  width: 400px;
-  height: 400px;
+  /*width: 400px;
+  height: 400px;*/
   /*background: transparent;
   position: relative;*/
   /*background: rgba(255, 255, 255, .3);*/
@@ -138,6 +140,10 @@
   /*display: flex;*/
   /*text-align: center;*/
 
+}
+
+.loginInput {
+  border-radius: 6px;
 }
 
 
