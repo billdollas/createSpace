@@ -30,6 +30,7 @@ const data = this.state;
     password: '',
     email: ''
   });
+  this.setState(this.props.history.push('/profile'));
  }
 
  render(){
