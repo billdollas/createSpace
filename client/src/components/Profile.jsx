@@ -17,6 +17,8 @@ class Profile extends Component {
     // this.checkLogin = this.checkLogin.bind(this);
   }
 
+
+
   logout(ev) {
     ev.preventDefault();
     TokenService.destroy();
@@ -43,11 +45,12 @@ class Profile extends Component {
 
 
   render() {
+
     return (
       <div>
       <div className='picCont'>
         <div className='profilePic'>
-        Picture
+        <h1> {this.state.username} </h1>
         </div>
         </div>
         <div> Hello </div>
@@ -61,9 +64,11 @@ class Profile extends Component {
         </div>
 
     )
+}
   }
 
-}
+
+
 
 export default Profile;
 

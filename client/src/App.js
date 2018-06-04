@@ -7,6 +7,7 @@ import Film from './components/Film';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
+import Categorized from './components/CategorizedPost'
 import {Route, Switch, Link } from 'react-router-dom';
 import TokenService from './services/TokenService';
 const base = process.env.REACT_APP_BASE_URL;
@@ -32,6 +33,8 @@ class App extends Component {
     .then(data => this.setState({
       spaces: data.spaces
     }));
+    this.allUsers();
+    this.allPost();
   }
 
   //auth shit begins
@@ -77,16 +80,68 @@ class App extends Component {
   //   .catch(err => console.log(err));
   // }
 
+  allUsers() {
+    axios(`${base}/users`, {
+      method: 'get'
+    }).then(resp => {
+      this.setState({ users: resp.data});
+    });
+  }
+
+  allPost() {
+    axios (`${base}/spaces`,{
+      method: 'get'
+    }).then(resp => {
+      this.setState({ posts: resp.data});
+    });
+  }
+
 
 
 
   render() {
+    if (!this.state.posts) return <div><center>loading... </center></div>
     return (
       <div className="App">
         <Switch>
 
           <Route
           exact path= '/'
+          render= { props => {
+            return(
+              <div>
+
+              <div className='spacesCont'>
+              <div>
+              <Art
+              {...props}
+              />
+              </div>
+              <div>
+              <Photography
+              {...props}
+              />
+              </div>
+              <div>
+              <Film
+              {...props}
+              />
+              </div>
+              <div className='mainTxt'>
+              <h1>createspace...</h1>
+              </div>
+              <div className='userCont'>
+              <Link to='/login' style={{ textDecoration: 'none' }}><h1 className='loginTxt'>Login</h1></Link>
+              <Link to='/register' style={{ textDecoration: 'none' }}><h1 className='regTxt'>Register</h1></Link>
+              </div>
+              </div>
+              </div>
+              )
+          }}
+          />
+
+          <Route
+          path= '/spaces/:category'
           render= { props => {
             return(
               <div>
@@ -107,6 +162,11 @@ class App extends Component {
               <div className='userCont'>
               <Link to='/login' style={{ textDecoration: 'none' }}><h1 className='loginTxt'>Login</h1></Link>
               <Link to='/register' style={{ textDecoration: 'none' }}><h1 className='regTxt'>Register</h1></Link>
+              <Categorized
+              {...props}
+              posts={this.state.posts}
+              users={this.state.users}
+              />
               </div>
               </div>
               </div>
