@@ -55,10 +55,10 @@ export default class Login extends Component {
           <div className='loginFormCont'>
           <form className='loginForm'>
           <div className='loginFormTxt'>
-          <h1> LOGIN </h1>
+          <h1> Login </h1>
           </div>
           <label className='loginFormLabel'>
-            Username:
+            <h3 className='loginLabelTxt'> Username: </h3>
             <div>
             <input type='text'
             className='loginInput'
@@ -69,7 +69,7 @@ export default class Login extends Component {
             </div>
           </label>
           <label className='loginFormLabel'>
-            Password:
+            <h3 className='loginLabelTxt'> Password: </h3>
             <div>
             <input type='password'
             className='loginInput'

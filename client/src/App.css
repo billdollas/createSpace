@@ -1,9 +1,9 @@
 /*LANDING PAGE CSS BEGINS*/
 
-/** {
+* {
   margin: 0;
   padding: 0;
-}*/
+}
 
 .mainTxt h1{
 
@@ -116,6 +116,7 @@
   height: 300px;
   text-align: center;
   margin: auto;
+  margin-top: 150px;
   position: relative;
   /*box-shadow: inset -1px 2px 33px rgba(0, 0, 0, .3);*/
   box-shadow: 0 0 24px 3px rgba(0, 0, 0, .1);
@@ -123,6 +124,7 @@
 }
 
 .loginForm {
+
   /*margin-top: 50px;
   padding-top: 80px;*/
   /*justify-content: center;*/
@@ -146,9 +148,57 @@
   border-radius: 6px;
 }
 
+.loginFormTxt{
+  font-size: 28px;
+  padding-bottom: 20px;
+}
+
+.loginLabelTxt {
+  font-size: 22px;
+}
+
 
 
 /*LOGIN CSS ENDS*/
+
+/*REGISTER CSS BEGINS*/
+.registerFormCont{
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  margin: auto;
+  /*flex-wrap: wrap;*/
+  margin-top: 150px;
+  position: relative;
+  /*box-shadow: inset -1px 2px 33px rgba(0, 0, 0, .3);*/
+  box-shadow: 0 0 24px 3px rgba(0, 0, 0, .1);
+  border-radius: 15px 50px 30px;
+}
+.regFormTxt{
+  font-size: 28px;
+}
+.regForm{
+  margin-top: 30px;
+}
+
+.regInput{
+  border-radius: 6px;
+}
+
+.regButton {
+  padding-top: 10px;
+}
+
+.regLabelTxt {
+  font-size: 22px;
+}
+
+
+
+
+/*REGISTER CSS ENDS*/
 
 
 

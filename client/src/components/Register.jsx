@@ -34,42 +34,56 @@ const data = this.state;
 
  render(){
   return (
-    <div>
+    <div className='registerFormCont'>
+    <div className='regFormContainer'>
+    <div className='regFormTxt'>
     <h1> Register </h1>
-    <form onSubmit={this.handleSubmit}>
+    </div>
+    <form onSubmit={this.handleSubmit} className='regForm'>
 
-    <label>
-    <h3> Username </h3>
+    <label className='regFormLabel'>
+    <h3 className='regLabelTxt'> Username: </h3>
+    <div>
     <input
+    className='regInput'
     type='text'
     name='username'
     value={this.state.username}
     onChange={this.handleInputChange}
     />
+    </div>
     </label>
 
-    <label>
-    <h3> Password </h3>
+    <label className='regFormLabel'>
+    <h3 className='regLabelTxt'> Password: </h3>
+    <div>
     <input
+    className='regInput'
     type='password'
     name='password'
     value={this.state.password}
     onChange={this.handleInputChange}
     />
+    </div>
     </label>
 
-    <label>
-    <h3> Email </h3>
+    <label className='regFormLabel'>
+    <h3 className='regLabelTxt'> Email: </h3>
+    <div>
     <input
+    className='regInput'
     type='text'
     name='email'
     value={this.state.email}
     onChange={this.handleInputChange}
     />
+    </div>
     </label>
-
+    <div className='regButton'>
     <button type='submit'> Register </button>
+    </div>
     </form>
+    </div>
     </div>
     )
  }
